@@ -23,7 +23,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Flower2,
 };
 
-const categories = ['Tous', 'Coiffure', 'Couleur', 'Soins', 'Mariage'] as const;
+const categories = ['Tous', 'Coiffure', 'Couleur', 'Soins', 'Mariage', 'Hommes'] as const;
 
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState<string>('Tous');

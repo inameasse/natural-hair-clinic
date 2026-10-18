@@ -147,8 +147,8 @@ export default function Contact() {
                     Demande envoyée !
                   </h3>
                   <p className="text-stone-500 dark:text-stone-400">
-                    Merci {form.name || 'madame'}, nous vous contacterons très
-                    bientôt pour confirmer votre rendez-vous.
+                    Merci {form.name}, nous vous contacterons très bientôt
+                    pour confirmer votre rendez-vous.
                   </p>
                 </div>
               ) : (
@@ -229,10 +229,12 @@ export default function Contact() {
                       <option value="balayage">Balayage & Ombré</option>
                       <option value="coloration">Coloration & Mèches</option>
                       <option value="soin">Soin Profond</option>
-                      <option value="lissage">Lissage Brésilien</option>
                       <option value="mariage">Coiffure de Mariage</option>
                       <option value="chignon">Chignons & Updo</option>
                       <option value="brushing">Brushing</option>
+                      <option value="tresses-homme">Tresses homme</option>
+                      <option value="coiffure-homme">Coiffure homme</option>
+                      <option value="tresses-collees-homme">Tresses collées homme</option>
                     </select>
                   </div>
 

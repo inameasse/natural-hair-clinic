@@ -6,7 +6,7 @@ export interface Service {
   duration: string;
   icon: string;
   image: string;
-  category: 'Coiffure' | 'Couleur' | 'Soins' | 'Mariage';
+  category: 'Coiffure' | 'Couleur' | 'Soins' | 'Mariage' | 'Hommes';
 }
 
 export interface Review {
@@ -43,6 +43,19 @@ const getLocalImage = (index: number) => {
   return localImages[index % localImages.length];
 };
 
+const serviceImages = {
+  coiffure: new URL('../assets/images/coiffure.jpeg', import.meta.url).href,
+  coiffure1: new URL('../assets/images/coiffure1.jpeg', import.meta.url).href,
+  coiffure5: new URL('../assets/images/coiffure5.jpeg', import.meta.url).href,
+  coiffure6: new URL('../assets/images/coiffure6.jpeg', import.meta.url).href,
+  couleur: new URL('../assets/images/couleur.jpeg', import.meta.url).href,
+  couleur1: new URL('../assets/images/couleur1.jpeg', import.meta.url).href,
+  soin: new URL('../assets/images/soin1.jpeg', import.meta.url).href,
+  homme1: new URL('../assets/images/homme1.jpg', import.meta.url).href,
+  homme2: new URL('../assets/images/homme2.jpg', import.meta.url).href,
+  homme3: new URL('../assets/images/homme3.jpg', import.meta.url).href,
+};
+
 export const services: Service[] = [
   {
     id: 'coupe-femme',
@@ -52,7 +65,7 @@ export const services: Service[] = [
     price: 'À partir de 45€',
     duration: '1h',
     icon: 'Scissors',
-    image: getLocalImage(0),
+    image: serviceImages.coiffure,
     category: 'Coiffure',
   },
   {
@@ -63,8 +76,8 @@ export const services: Service[] = [
     price: 'À partir de 85€',
     duration: '2h30',
     icon: 'Palette',
-    image: getLocalImage(1),
-    category: 'Couleur',
+    image: serviceImages.coiffure1,
+    category: 'Coiffure',
   },
   {
     id: 'coloration',
@@ -74,7 +87,7 @@ export const services: Service[] = [
     price: 'À partir de 65€',
     duration: '2h',
     icon: 'Sparkles',
-    image: getLocalImage(2),
+    image: serviceImages.couleur,
     category: 'Couleur',
   },
   {
@@ -85,18 +98,7 @@ export const services: Service[] = [
     price: 'À partir de 55€',
     duration: '1h',
     icon: 'Droplet',
-    image: getLocalImage(3),
-    category: 'Soins',
-  },
-  {
-    id: 'lissage',
-    name: 'Lissage Brésilien',
-    description:
-      'Un lissage durable qui discipline les frisottis et apporte brillance extrême. Cheveux lisses, soyeux et faciles à coiffer.',
-    price: 'À partir de 120€',
-    duration: '3h',
-    icon: 'Wind',
-    image: getLocalImage(4),
+    image: serviceImages.soin,
     category: 'Soins',
   },
   {
@@ -107,7 +109,7 @@ export const services: Service[] = [
     price: 'À partir de 150€',
     duration: '2h',
     icon: 'Crown',
-    image: getLocalImage(5),
+    image: serviceImages.coiffure5,
     category: 'Mariage',
   },
   {
@@ -118,7 +120,7 @@ export const services: Service[] = [
     price: 'À partir de 60€',
     duration: '1h15',
     icon: 'Flower2',
-    image: getLocalImage(6),
+    image: serviceImages.coiffure6,
     category: 'Coiffure',
   },
   {
@@ -129,8 +131,41 @@ export const services: Service[] = [
     price: 'À partir de 35€',
     duration: '45min',
     icon: 'Wind',
-    image: getLocalImage(7),
-    category: 'Coiffure',
+    image: serviceImages.couleur1,
+    category: 'Couleur',
+  },
+  {
+    id: 'tresses-homme',
+    name: 'Tresses homme',
+    description:
+      'Des tresses soignées et adaptées à votre style, réalisées sur cheveux texturés.',
+    price: 'À partir de 30€',
+    duration: '1h',
+    icon: 'Scissors',
+    image: serviceImages.homme1,
+    category: 'Hommes',
+  },
+  {
+    id: 'coiffure-homme',
+    name: 'Coiffure homme',
+    description:
+      'Une coiffure nette et personnalisée, avec des lignes précises et une finition soignée.',
+    price: 'À partir de 30€',
+    duration: '1h',
+    icon: 'Scissors',
+    image: serviceImages.homme2,
+    category: 'Hommes',
+  },
+  {
+    id: 'tresses-collees-homme',
+    name: 'Tresses collées homme',
+    description:
+      'Des tresses collées réalisées avec soin pour un résultat propre et durable.',
+    price: 'À partir de 30€',
+    duration: '1h',
+    icon: 'Scissors',
+    image: serviceImages.homme3,
+    category: 'Hommes',
   },
 ];
 
