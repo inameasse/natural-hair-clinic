@@ -1,5 +1,5 @@
 import { Instagram, Facebook, MapPin, Phone, Mail, Heart } from 'lucide-react';
-import { salonInfo } from '@/data/salonData';
+import { salonInfo, brandAssets } from '@/data/salonData';
 
 const quickLinks = [
   { label: 'Accueil', href: '#accueil' },
@@ -26,21 +26,23 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold">
-                <span className="font-serif text-2xl font-bold text-white">É</span>
-              </div>
+              <img
+                src={brandAssets.logo}
+                alt="NATURAL HAIR CLINIC logo"
+                className="w-11 h-11 rounded-full object-cover border-2 border-gold-200 shadow-gold"
+              />
               <div>
                 <p className="font-serif text-xl font-semibold text-white">
-                  Élégance Or
+                  NATURAL HAIR CLINIC
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-gold-400">
-                  Coiffure Féminine
+                  Beauty Studio
                 </p>
               </div>
             </div>
             <p className="text-stone-400 text-sm leading-relaxed mb-5">
-              Votre salon de coiffure féminin haut de gamme. L'art de sublimer
-              vos cheveux dans un cadre raffiné et apaisant.
+              Votre salon de coiffure haut de gamme. L'art de sublimer vos
+              cheveux dans un cadre raffiné et apaisant.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -134,7 +136,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-stone-800 dark:border-noir-100 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-stone-500">
-            © 2026 Élégance Or. Tous droits réservés.
+            © 2026 NATURAL HAIR CLINIC. Tous droits réservés.
           </p>
           <p className="text-xs text-stone-500 flex items-center gap-1.5">
             Conçu avec <Heart className="w-3 h-3 text-gold-500 fill-gold-500" /> à Paris

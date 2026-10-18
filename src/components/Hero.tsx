@@ -37,8 +37,8 @@ export default function Hero() {
               <p className="text-gold-600 dark:text-gold-400 font-sans text-sm uppercase tracking-[0.3em] mb-3 font-medium">
                 Bienvenue chez
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold text-stone-800 dark:text-cream-50 leading-[1.05]">
-                Élégance <span className="text-gold-gradient">Or</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-stone-800 dark:text-cream-50 leading-[1.05]">
+                NATURAL <span className="text-gold-gradient">HAIR CLINIC</span>
               </h1>
               <p className="text-xl md:text-2xl font-serif italic text-stone-500 dark:text-stone-400 mt-3">
                 {salonInfo.tagline}
@@ -47,9 +47,9 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-stone-600 dark:text-stone-300 text-lg leading-relaxed max-w-xl">
-              Un salon de coiffure féminin où l'art de sublimer vos cheveux
-              rencontre le luxe et la détente. Coupez, colorez, soignez — et
-              ressortez transformée.
+              Un salon de coiffure où l'art de sublimer vos cheveux rencontre le
+              luxe et la détente. Coupez, colorez, soignez — et repartez avec un
+              style qui reflète votre personnalité.
             </p>
 
             {/* CTAs */}

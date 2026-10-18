@@ -1,5 +1,5 @@
 import { Award, Heart, Sparkles, Users } from 'lucide-react';
-import { aboutImage } from '@/data/salonData';
+import { aboutImage, brandAssets } from '@/data/salonData';
 
 const stats = [
   { icon: Users, value: '2000+', label: 'Clientes satisfaites' },
@@ -21,10 +21,13 @@ export default function About() {
           {/* Image side */}
           <div className="relative opacity-0-init animate-fade-up">
             <div className="relative rounded-3xl overflow-hidden shadow-gold-lg img-zoom">
-              <img
-                src={aboutImage}
-                alt="Intérieur du salon Élégance Or"
+              <video
+                src={brandAssets.video}
                 className="w-full h-[560px] object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-transparent" />
             </div>
@@ -32,10 +35,10 @@ export default function About() {
             {/* Floating quote card */}
             <div className="absolute -bottom-6 -right-4 lg:-right-8 max-w-xs bg-cream-50 dark:bg-noir-400 rounded-2xl shadow-gold-lg p-6">
               <p className="font-serif italic text-stone-700 dark:text-stone-200 text-lg leading-relaxed">
-                « La beauté n'est pas un luxe, c'est une expression de soi. »
+                « La beauté naturelle est notre signature, la confiance est notre mission. »
               </p>
               <p className="text-gold-600 dark:text-gold-400 text-sm font-medium mt-3">
-                — Élodie, Fondatrice
+                — NATURAL HAIR CLINIC
               </p>
             </div>
 
@@ -50,7 +53,7 @@ export default function About() {
                 Notre histoire
               </p>
               <h2 className="text-4xl md:text-5xl font-serif font-semibold text-stone-800 dark:text-cream-50 leading-tight">
-                Un salon où chaque femme{' '}
+                Un salon où chaque client{' '}
                 <span className="text-gold-gradient">se révèle</span>
               </h2>
             </div>
@@ -58,16 +61,16 @@ export default function About() {
             <div className="gold-divider w-24" />
 
             <p className="text-stone-600 dark:text-stone-300 text-lg leading-relaxed">
-              Depuis 15 ans, Élégance Or est un lieu dédié à la beauté féminine.
-              Dans un cadre raffiné aux touches dorées, notre équipe de
-              expertes coiffeuses met leur passion et leur savoir-faire au
-              service de votre image.
+              Depuis 15 ans, NATURAL HAIR CLINIC est un lieu dédié à la beauté
+              naturelle et à la santé des cheveux. Dans un cadre raffiné aux
+              touches dorées, notre équipe d’expertes met sa passion et son
+              savoir-faire au service de votre image.
             </p>
             <p className="text-stone-600 dark:text-stone-300 text-lg leading-relaxed">
               Nous croyons qu'une coiffure réussie est celle qui vous ressemble.
               C'est pourquoi nous prenons le temps de vous écouter, de vous
               conseiller et de créer une expérience sur-mesure, alliant
-              techniques modernes et soins profonds.
+              techniques modernes, soins profonds et élégance naturelle.
             </p>
 
             {/* Stats grid */}

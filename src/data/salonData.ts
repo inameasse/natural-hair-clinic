@@ -31,6 +31,18 @@ export interface GalleryItem {
   tags: string[];
 }
 
+const localImages = Object.values(
+  import.meta.glob('../assets/images/*.{jpg,jpeg,png}', {
+    eager: true,
+    import: 'default',
+  })
+) as string[];
+
+const getLocalImage = (index: number) => {
+  if (localImages.length === 0) return '';
+  return localImages[index % localImages.length];
+};
+
 export const services: Service[] = [
   {
     id: 'coupe-femme',
@@ -40,7 +52,7 @@ export const services: Service[] = [
     price: 'À partir de 45€',
     duration: '1h',
     icon: 'Scissors',
-    image: 'https://images.pexels.com/photos/3993290/pexels-photo-3993290.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(0),
     category: 'Coiffure',
   },
   {
@@ -51,7 +63,7 @@ export const services: Service[] = [
     price: 'À partir de 85€',
     duration: '2h30',
     icon: 'Palette',
-    image: 'https://images.pexels.com/photos/4981476/pexels-photo-4981476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(1),
     category: 'Couleur',
   },
   {
@@ -62,7 +74,7 @@ export const services: Service[] = [
     price: 'À partir de 65€',
     duration: '2h',
     icon: 'Sparkles',
-    image: 'https://images.pexels.com/photos/8468125/pexels-photo-8468125.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(2),
     category: 'Couleur',
   },
   {
@@ -73,7 +85,7 @@ export const services: Service[] = [
     price: 'À partir de 55€',
     duration: '1h',
     icon: 'Droplet',
-    image: 'https://images.pexels.com/photos/8834043/pexels-photo-8834043.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(3),
     category: 'Soins',
   },
   {
@@ -84,7 +96,7 @@ export const services: Service[] = [
     price: 'À partir de 120€',
     duration: '3h',
     icon: 'Wind',
-    image: 'https://images.pexels.com/photos/5368632/pexels-photo-5368632.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(4),
     category: 'Soins',
   },
   {
@@ -95,7 +107,7 @@ export const services: Service[] = [
     price: 'À partir de 150€',
     duration: '2h',
     icon: 'Crown',
-    image: 'https://images.pexels.com/photos/16976882/pexels-photo-16976882.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(5),
     category: 'Mariage',
   },
   {
@@ -106,7 +118,7 @@ export const services: Service[] = [
     price: 'À partir de 60€',
     duration: '1h15',
     icon: 'Flower2',
-    image: 'https://images.pexels.com/photos/19163430/pexels-photo-19163430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(6),
     category: 'Coiffure',
   },
   {
@@ -117,7 +129,7 @@ export const services: Service[] = [
     price: 'À partir de 35€',
     duration: '45min',
     icon: 'Wind',
-    image: 'https://images.pexels.com/photos/8834111/pexels-photo-8834111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(7),
     category: 'Coiffure',
   },
 ];
@@ -131,7 +143,7 @@ export const reviews: Review[] = [
     comment:
       'Un salon absolument magnifique. J\'ai fait un balayage et le résultat dépasse mes attentes. L\'accueil est chaleureux et le cadre élégant. Je recommande à 100% !',
     service: 'Balayage & Ombré',
-    avatar: 'https://images.pexels.com/photos/819105/pexels-photo-819105.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(8),
   },
   {
     id: 'r2',
@@ -141,7 +153,7 @@ export const reviews: Review[] = [
     comment:
       'J\'y suis allée pour ma coiffure de mariage et tout était parfait. L\'essai, les conseils, et le jour J un vrai rêve. Merci pour cette journée inoubliable !',
     service: 'Coiffure de Mariage',
-    avatar: 'https://images.pexels.com/photos/4450100/pexels-photo-4450100.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(9),
   },
   {
     id: 'r3',
@@ -151,7 +163,7 @@ export const reviews: Review[] = [
     comment:
       'Le soin profond japonais a transformé mes cheveux. Ils sont doux, brillants et revitalisés. Le cadre est apaisant, on se sent comme en spa.',
     service: 'Soin Profond Japonais',
-    avatar: 'https://images.pexels.com/photos/10786858/pexels-photo-10786858.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(10),
   },
   {
     id: 'r4',
@@ -161,7 +173,7 @@ export const reviews: Review[] = [
     comment:
       'Le lissage brésilien a changé ma vie ! Mes cheveux sont enfin disciplinés et brillants. L\'équipe est professionnelle et à l\'écoute. Un sans-faute.',
     service: 'Lissage Brésilien',
-    avatar: 'https://images.pexels.com/photos/23092165/pexels-photo-23092165.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(11),
   },
   {
     id: 'r5',
@@ -171,7 +183,7 @@ export const reviews: Review[] = [
     comment:
       'Le meilleur salon de la ville ! Toujours un accueil chaleureux et des conseils personnalisés. Mes couleurs sont toujours impeccables. Fidèle depuis 2 ans.',
     service: 'Coloration & Mèches',
-    avatar: 'https://images.pexels.com/photos/8727573/pexels-photo-8727573.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(12),
   },
   {
     id: 'r6',
@@ -181,7 +193,7 @@ export const reviews: Review[] = [
     comment:
       'Un chignon magnifique pour la soirée de gala. Tout le monde m\'a complimentée ! L\'artiste a su comprendre exactement ce que je voulais. Bravo !',
     service: 'Chignons & Updo',
-    avatar: 'https://images.pexels.com/photos/11106825/pexels-photo-11106825.jpeg?auto=compress&cs=tinysrgb&h=200&w=200',
+    avatar: getLocalImage(13),
   },
 ];
 
@@ -190,7 +202,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g1',
     title: 'Balayage Soleil',
     category: 'Couleur',
-    image: 'https://images.pexels.com/photos/28833615/pexels-photo-28833615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(14),
     span: true,
     description: 'Un balayage effet soleil qui apporte luminosité et profondeur naturelle. Des mèches fines et fondues pour un rendu ensoleillé toute l\'année, sans démarcation. Idéal pour illuminer le visage et apporter du relief aux cheveux longs.',
     duration: '2h30',
@@ -201,7 +213,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g2',
     title: 'Chignon Élégant',
     category: 'Coiffure',
-    image: 'https://images.pexels.com/photos/19163430/pexels-photo-19163430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(15),
     description: 'Un chignon raffiné et maîtrisé pour vos événements et cérémonies. Coiffage minutieux, fixage longue durée et finitions impeccables pour une tenue parfaite toute la soirée.',
     duration: '1h15',
     price: 'À partir de 60€',
@@ -211,7 +223,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g3',
     title: 'Tresses Sophistiquées',
     category: 'Coiffure',
-    image: 'https://images.pexels.com/photos/2399536/pexels-photo-2399536.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(16),
     description: 'Des tresses africaines sophistiquées, fines et précises, réalisées avec soin. Un style protecteur et élégant qui sublime la texture naturelle de vos cheveux tout en offrant une tenue durable.',
     duration: '3h',
     price: 'À partir de 90€',
@@ -221,7 +233,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g4',
     title: 'Coiffure Mariage',
     category: 'Mariage',
-    image: 'https://images.pexels.com/photos/15507425/pexels-photo-15507425.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(17),
     span: true,
     description: 'Une coiffure de mariage d\'exception, du premier essai à la réalisation le jour J. Chignons, demi-coiffages, voiles et accessoires — tout est pensé pour que vous soyez la plus belle de votre journée.',
     duration: '2h',
@@ -232,7 +244,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g5',
     title: 'Coloration Éclat',
     category: 'Couleur',
-    image: 'https://images.pexels.com/photos/3993323/pexels-photo-3993323.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(18),
     description: 'Une coloration uniforme qui illumine et intensifie votre chevelure. Produits doux et respectueux du cheveu, couverture parfaite des cheveux blancs et éclat longue durée.',
     duration: '2h',
     price: 'À partir de 65€',
@@ -242,7 +254,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g6',
     title: 'Updo Cérémonie',
     category: 'Mariage',
-    image: 'https://images.pexels.com/photos/39142946/pexels-photo-39142946.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(19),
     description: 'Un updo structuré et romantique pour vos cérémonies et galas. Volume maîtrisé, mèches lâchées stratégiquement et finitions spray longue durée pour une élégance intemporelle.',
     duration: '1h30',
     price: 'À partir de 70€',
@@ -252,7 +264,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g7',
     title: 'Tresses Florales',
     category: 'Mariage',
-    image: 'https://images.pexels.com/photos/11652342/pexels-photo-11652342.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(20),
     description: 'Des tresses florales romantiques ornées de fleurs fraîches ou artificielles. Parfait pour un mariage bohème ou une séance photo en plein air. Un look poétique et naturel.',
     duration: '2h',
     price: 'À partir de 95€',
@@ -262,7 +274,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g8',
     title: 'Élégance Naturelle',
     category: 'Coiffure',
-    image: 'https://images.pexels.com/photos/15957842/pexels-photo-15957842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: getLocalImage(21),
     description: 'Un brushing et mise en beauté qui valorise la texture naturelle de vos cheveux. Volume, brillance et mouvement pour un résultat effortless chic, sans effet figé.',
     duration: '45min',
     price: 'À partir de 35€',
@@ -271,27 +283,32 @@ export const galleryItems: GalleryItem[] = [
 ];
 
 export const salonInfo = {
-  name: 'Élégance Or',
-  tagline: 'Coiffure Féminine de Prestige',
-  address: '12 Avenue des Champs-Élysées, 75008 Paris',
-  phone: '+33 1 42 65 89 90',
-  email: 'contact@elegance-or.fr',
+  name: 'NATURAL HAIR CLINIC',
+  tagline: 'Natural Hair Care & Beauty',
+  address: 'Abidjan, Port-Bouet, Côte d\'Ivoire',
+  phone: '+225 0707070707',
+  email: 'contact@naturalhairclinic.ci',
   hours: [
-    { day: 'Lundi — Vendredi', time: '09:00 — 19:00' },
-    { day: 'Samedi', time: '09:00 — 18:00' },
-    { day: 'Dimanche', time: 'Fermé' },
+    { day: 'Mardi — Samedi', time: '09:00 — 19:00' },
+    { day: 'Dimanche', time: '09:00 — 18:00' },
+    { day: 'Lundi', time: 'Fermé' },
   ],
   social: {
-    instagram: '@elegance.or',
-    facebook: 'Salon Élégance Or',
-    tiktok: '@elegance.or',
+    instagram: '@naturalhairclinic',
+    facebook: 'NATURAL HAIR CLINIC',
+    tiktok: '@naturalhairclinic',
   },
 };
 
-export const heroImages = {
-  primary: 'https://images.pexels.com/photos/7823407/pexels-photo-7823407.jpeg?auto=compress&cs=tinysrgb&h=1200&w=800',
-  secondary: 'https://images.pexels.com/photos/7750124/pexels-photo-7750124.jpeg?auto=compress&cs=tinysrgb&h=800&w=600',
-  tertiary: 'https://images.pexels.com/photos/3993310/pexels-photo-3993310.jpeg?auto=compress&cs=tinysrgb&h=800&w=600',
+export const brandAssets = {
+  logo: new URL('../assets/images/logo.jpeg', import.meta.url).href,
+  video: new URL('../assets/video/demo.mp4', import.meta.url).href,
 };
 
-export const aboutImage = 'https://images.pexels.com/photos/35844833/pexels-photo-35844833.png?auto=compress&cs=tinysrgb&h=1000&w=800';
+export const heroImages = {
+  primary: getLocalImage(22),
+  secondary: getLocalImage(23),
+  tertiary: getLocalImage(24),
+};
+
+export const aboutImage = getLocalImage(25);

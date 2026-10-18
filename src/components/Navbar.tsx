@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import { brandAssets } from '@/data/salonData';
 
 const navLinks = [
   { label: 'Accueil', href: '#accueil' },
@@ -30,32 +31,38 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? 'glass-gold shadow-gold py-3'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
+      
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => handleNavClick('#accueil')}
           className="flex items-center gap-3 group"
         >
+
           <div className="relative">
-            <div className="w-11 h-11 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold transition-transform duration-500 group-hover:scale-110">
-              <span className="font-serif text-2xl font-bold text-white">É</span>
-            </div>
+            <img
+              src={brandAssets.logo}
+              alt="NATURAL HAIR CLINIC logo"
+              className="w-12 h-12 rounded-full object-cover border-2 border-gold-200 dark:border-gold-700 shadow-gold transition-transform duration-500 group-hover:scale-110"
+            />
           </div>
+
           <div className="flex flex-col leading-none text-left">
             <span className="font-serif text-xl font-semibold tracking-wide text-stone-800 dark:text-cream-50 transition-colors duration-500">
-              Élégance Or
+              NATURAL HAIR CLINIC
             </span>
             <span className="text-[10px] uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 font-sans font-medium">
-              Coiffure Féminine
+              Beauty Studio
             </span>
           </div>
+
         </button>
+
 
         {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-9">
@@ -75,6 +82,7 @@ export default function Navbar() {
         {/* CTA + Theme toggle */}
         <div className="hidden lg:flex items-center gap-4">
           <ThemeToggle />
+
           <a
             href="tel:+33142658990"
             className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-300 hover:text-gold-600 dark:hover:text-gold-400 transition-colors"
@@ -82,12 +90,14 @@ export default function Navbar() {
             <Phone className="w-4 h-4" />
             <span className="font-medium">01 42 65 89 90</span>
           </a>
+
           <button
             onClick={() => handleNavClick('#contact')}
             className="px-6 py-2.5 bg-gold-gradient text-white text-sm font-medium rounded-full shadow-gold hover:shadow-gold-lg transition-all duration-300 hover:scale-105"
           >
             Prendre RDV
           </button>
+
         </div>
 
         {/* Mobile toggle */}
@@ -105,9 +115,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ${
-          mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className={`lg:hidden overflow-hidden transition-all duration-500 ${mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <div className="px-6 py-6 bg-cream-50 dark:bg-noir-400 shadow-gold-lg">
           <ul className="flex flex-col gap-4">
@@ -134,4 +143,5 @@ export default function Navbar() {
       </div>
     </header>
   );
+
 }
