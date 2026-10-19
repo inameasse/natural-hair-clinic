@@ -3,8 +3,8 @@ import { aboutImage, brandAssets } from '@/data/salonData';
 
 const stats = [
   { icon: Users, value: '2000+', label: 'Clientes satisfaites' },
-  { icon: Award, value: '15', label: "Années d'expérience" },
-  { icon: Sparkles, value: '8', label: 'Expertes coiffeuses' },
+  { icon: Award, value: '5', label: "Années d'expérience" },
+  { icon: Sparkles, value: '4', label: 'Expertes coiffeuses' },
   { icon: Heart, value: '5/5', label: 'Note moyenne' },
 ];
 
@@ -61,7 +61,7 @@ export default function About() {
             <div className="gold-divider w-24" />
 
             <p className="text-stone-600 dark:text-stone-300 text-lg leading-relaxed">
-              Depuis 15 ans, NATURAL HAIR CLINIC est un lieu dédié à la beauté
+              Depuis 5 ans, NATURAL HAIR CLINIC est un lieu dédié à la beauté
               naturelle et à la santé des cheveux. Dans un cadre raffiné aux
               touches dorées, notre équipe d’expertes met sa passion et son
               savoir-faire au service de votre image.

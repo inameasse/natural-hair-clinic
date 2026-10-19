@@ -91,7 +91,7 @@ export default function Footer() {
               <li className="text-sm text-stone-400">Balayage & Ombré</li>
               <li className="text-sm text-stone-400">Coloration & Mèches</li>
               <li className="text-sm text-stone-400">Soin Profond</li>
-              <li className="text-sm text-stone-400">Lissage Brésilien</li>
+              {/* <li className="text-sm text-stone-400">Lissage Brésilien</li> */}
               <li className="text-sm text-stone-400">Coiffure de Mariage</li>
             </ul>
           </div>
@@ -109,6 +109,14 @@ export default function Footer() {
               <li className="flex items-center gap-3 text-sm text-stone-400">
                 <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
                 <span>{salonInfo.phone}</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-stone-400">
+                <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
+                <span>{salonInfo.phone1}</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-stone-400">
+                <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
+                <span>{salonInfo.phone2}</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-stone-400">
                 <Mail className="w-4 h-4 text-gold-500 flex-shrink-0" />
@@ -139,7 +147,7 @@ export default function Footer() {
             © 2026 NATURAL HAIR CLINIC. Tous droits réservés.
           </p>
           <p className="text-xs text-stone-500 flex items-center gap-1.5">
-            Conçu avec <Heart className="w-3 h-3 text-gold-500 fill-gold-500" /> à Paris
+            Conçu avec <Heart className="w-3 h-3 text-gold-500 fill-gold-500" /> à Abidjan, Côte d'Ivoire
           </p>
         </div>
       </div>
