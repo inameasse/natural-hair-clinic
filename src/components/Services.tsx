@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Scissors,
   Palette,
@@ -8,7 +8,9 @@ import {
   Crown,
   Flower2,
   Clock,
+  Tag,
   ArrowRight,
+  X,
 } from 'lucide-react';
 import { services } from '@/data/salonData';
 import type { Service } from '@/data/salonData';
@@ -27,6 +29,30 @@ const categories = ['Tous', 'Coiffure', 'Couleur', 'Soins', 'Mariage', 'Hommes']
 
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState<string>('Tous');
+  const [selected, setSelected] = useState<Service | null>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelected(null);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selected]);
+
+  const handleBook = () => {
+    setSelected(null);
+    setTimeout(() => {
+      const el = document.querySelector('#contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
 
   const filtered =
     activeCategory === 'Tous'
@@ -120,13 +146,10 @@ export default function Services() {
                       {service.duration}
                     </span>
                     <button
-                      onClick={() => {
-                        const el = document.querySelector('#contact');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }}
+                      onClick={() => setSelected(service)}
                       className="flex items-center gap-1 text-sm font-medium text-gold-600 dark:text-gold-400 hover:text-gold-700 dark:hover:text-gold-300 transition-colors group/btn"
                     >
-                      Réserver
+                      Voir détails
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </button>
                   </div>
@@ -136,6 +159,82 @@ export default function Services() {
           })}
         </div>
       </div>
+
+      {selected && (
+        <div
+          className="fixed inset-0 z-[100] bg-stone-900/80 dark:bg-noir-900/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fade-in"
+          onClick={() => setSelected(null)}
+        >
+          <button
+            className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-cream-50/20 dark:bg-noir-400/40 flex items-center justify-center text-white hover:bg-cream-50/40 dark:hover:bg-gold-900/60 transition-colors"
+            onClick={() => setSelected(null)}
+            aria-label="Fermer"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="service-dialog-title"
+            className="relative bg-cream-50 dark:bg-noir-400 rounded-3xl shadow-gold-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-in"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="grid md:grid-cols-2">
+              <div className="relative h-64 md:h-full min-h-[300px] md:min-h-[500px]">
+                <img
+                  src={selected.image}
+                  alt={selected.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent md:bg-gradient-to-r md:from-transparent md:to-stone-900/10" />
+              </div>
+
+              <div className="p-8 md:p-10 flex flex-col gap-5">
+                <div>
+                  <span className="inline-block px-3 py-1 rounded-full bg-gold-100 dark:bg-gold-900/40 text-xs font-medium text-gold-700 dark:text-gold-300 uppercase tracking-wider">
+                    {selected.category}
+                  </span>
+                  <h3
+                    id="service-dialog-title"
+                    className="text-3xl font-serif font-semibold text-stone-800 dark:text-cream-50 mt-3"
+                  >
+                    {selected.name}
+                  </h3>
+                </div>
+
+                <div className="gold-divider w-20" />
+
+                <p className="text-stone-600 dark:text-stone-300 leading-relaxed">
+                  {selected.description || 'Nos coiffeuses vous conseilleront pour trouver la prestation adaptée à vos envies.'}
+                </p>
+
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+                    <Clock className="w-4 h-4 text-gold-500" />
+                    <span>{selected.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+                    <Tag className="w-4 h-4 text-gold-500" />
+                    <span className="text-gold-700 dark:text-gold-400 font-serif font-semibold">
+                      {selected.price}
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleBook}
+                  className="group mt-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-gold-gradient text-white font-medium rounded-full shadow-gold hover:shadow-gold-lg transition-all duration-400 hover:scale-[1.02]"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Réserver cette prestation
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

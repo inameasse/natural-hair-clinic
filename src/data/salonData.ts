@@ -96,10 +96,9 @@ export const services: Service[] = [
   {
     id: 'soin-profond',
     name: 'Soin au baobab',
-    description:
-      'Traitement intensif qui répare, nourrit et fait briller vos cheveux de l\'intérieur. Idéal pour cheveux secs ou abîmés.',
+    description:"Nourir et reparer la fibre capilaire en profondeur favoriser , la croissance et la reparation a l'interieure meme de la fibre capilaire . lisser , hydrater le cheveu en profondeur , tout en lui apportant de la souplesse , donner de la vitalité et de la brillance a vos cheveux ",
     price: 'À partir de 55 f',
-    duration: '1h',
+    duration: '1h', 
     icon: 'Droplet',
     image: serviceImages.soin,
     category: 'Soins',
